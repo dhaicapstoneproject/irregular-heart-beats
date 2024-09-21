@@ -2,10 +2,13 @@
 # https://www.mydatahack.com/building-alexnet-with-keras/
 # script that reads data, creates model and trains it
 
-from keras.models import Sequential
-from keras.layers import Dense, Activation, Dropout, Flatten,\
+from tensorflow import keras as tf
+
+from tensorflow.keras import Sequential
+from tensorflow.keras.layers import Dense, Activation, Dropout, Flatten,\
     Conv2D, MaxPooling2D
-from keras.layers.normalization import BatchNormalization
+
+from tensorflow.keras.layers import BatchNormalization
 import numpy as np
 import directory_structure
 import os
@@ -14,8 +17,8 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 import keras
 from collections import deque
-from keras.utils import multi_gpu_model
-from keras.callbacks import EarlyStopping
+#from tensorflow.python.keras.utils.multi_gpu_utils import multi_gpu_model
+from tensorflow.python.keras.callbacks import EarlyStopping
 
 # classes model needs to learn to classify
 CLASSES_TO_CHECK = ['L', 'N', 'V', 'A', 'R']
@@ -223,6 +226,9 @@ def createModel(model_name):
     '''
     model = Sequential()
 
+
+
+   
     if model_name == 'Alexnet':
         # -----------------------1st Convolutional Layer--------------------------
         model.add(Conv2D(filters=96, input_shape=(224, 224, 3), kernel_size=(11, 11),
@@ -406,8 +412,8 @@ if __name__ == '__main__':
     history = parallel_model.fit(
         X_train,
         y_train,
-        batch_size=64,
-        epochs=150,
+        batch_size=1,
+        epochs=3,
         verbose=1,
         validation_data=(X_test, y_test),
         shuffle=True,

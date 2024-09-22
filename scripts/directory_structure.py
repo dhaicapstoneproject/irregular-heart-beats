@@ -57,8 +57,35 @@ def removeFileExtension(file):
     '''
     return os.path.splitext(file)[0]
 
-
 def getWriteDirectory(directory_name, subdirectory_name):
+    '''
+    get path of directory name specified where information needs
+    to be written to (subdirectory specification is optional)
+    Args:
+            directory_name (str): name of directory to read from
+            subdirectory (str): subdirectory of directory specified
+    Returns:
+            wr_dir (str): path of directory to write data to
+    '''
+    base_path = '/content/drive/MyDrive/'  # Change base path to mount folder
+    
+    if subdirectory_name == None:
+        wr_dir = base_path + directory_name + '/'
+    else:
+        if subdirectory_name == '/':
+            wr_dir = base_path + directory_name + '/' + '_' + '/'
+        else:
+            wr_dir = base_path + directory_name + '/' + subdirectory_name + '/'
+    # if dir does not exist make a new one
+    if not os.path.exists(wr_dir):
+        os.makedirs(wr_dir)  # Use makedirs to create intermediate directories if needed
+        return wr_dir
+    else:
+            # return directory specified
+            return wr_dir
+            
+            
+def getWriteDirectory__(directory_name, subdirectory_name):
     '''
     get path of directory name specified where information needs
     to be written to (subdirectory specification is optional)

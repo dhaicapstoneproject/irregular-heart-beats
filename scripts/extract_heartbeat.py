@@ -24,7 +24,7 @@ if __name__ == '__main__':
     for signal_file in signal_files:
         print(signal_file)
         print (" directory structure :"+directory_structure.removeFileExtension(signal_file));
-        signal_path = "/content/irregular-heart-beats/mit-bih_waveform/"+directory_structurirregular-heart-beatse.removeFileExtension(signal_file)
+        signal_path = "/content/irregular-heart-beats/mit-bih_waveform/"+directory_structure.removeFileExtension(signal_file)
         #signal_dir + '/' + \
             
         print (" signal_path :"+signal_path);

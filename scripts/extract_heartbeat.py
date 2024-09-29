@@ -12,7 +12,7 @@ import pandas as pd
 if __name__ == '__main__':
 
     # find directory where data is
-    signal_dir = directory_structure.getReadDirectory('/content/Irregular-Heartbeat-Detection-using-ML/mit-bih_waveform')
+    signal_dir = directory_structure.getReadDirectory('/content/irregular-heart-beats/mit-bih_waveform')
 
     # get all .hea and .dat files (respectively)
     signal_files = directory_structure.filesInDirectory('.hea', signal_dir)
@@ -24,7 +24,7 @@ if __name__ == '__main__':
     for signal_file in signal_files:
         print(signal_file)
         print (" directory structure :"+directory_structure.removeFileExtension(signal_file));
-        signal_path = "/content/Irregular-Heartbeat-Detection-using-ML/mit-bih_waveform/"+directory_structure.removeFileExtension(signal_file)
+        signal_path = "/content/irregular-heart-beats/mit-bih_waveform/"+directory_structure.removeFileExtension(signal_file)
         #signal_dir + '/' + \
             
         print (" signal_path :"+signal_path);

@@ -181,7 +181,7 @@ def saveMetricsAndWeights(score, model):
 
 
 
-    directory_structure.getWriteDirectory('testing, None)
+    directory_structure.getWriteDirectory('testing', None)
     weights_path =  base_path +'model_weights/'
     metrics_path = base_path + 'accuracy_metrics/'
     print("weights_path :"+weights_path)
